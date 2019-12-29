@@ -4,20 +4,6 @@ const RB_Parallax_Creator = {};
 ( function( $ ) {
     var rb_parallax_elements = [];
 
-    // $(window).on('scroll', function() {
-    //     $.each(rb_parallax_elements, (index, rb_parallax) => {
-    //         requestAnimationFrame(function(){
-    //             rb_parallax.updatePosition();
-    //         });
-    //     });
-    // });
-    //
-    // $(window).resize(function() {
-    //     window.requestAnimationFrame(function(){
-    //         $.each(rb_parallax_elements, (index, rb_parallax) => { rb_parallax.updatePosition(); });
-    //     });
-    // });
-
     function rb_parallax_loop(){
         $.each(rb_parallax_elements, (index, rb_parallax) => {
             rb_parallax.updatePosition();
@@ -124,46 +110,17 @@ const RB_Parallax_Creator = {};
         calculatePositionAndSave(){
             var elemHeight = this.getContainerHeight();
             var containerOffsetTop = this.$container.offset().top;
-            // var scrollTop = $(window).scrollTop();
-            // var distToWindowBottom = containerOffsetTop - ( scrollTop + window.innerHeight );//Dist from container top to window bottom
-            // var distToWindowTop = (containerOffsetTop + elemHeight) - scrollTop;//Dist from container bottom to window top
-            // var velocity = this.settings['velocity'];
-            // var newY = 0;
-            // var finalY = 0;
-            //Calculates new height for parallax element
-            //if(this.$container.height() != this.lastContainerHeight) //this condition causes conflicts with mobile browsers
             elemHeight = this.setNewSize();
-
-            //Element in view (security size should be 0 in a perfect escenario)
-            //if((distToWindowBottom < this.getSecuritySize()) && (distToWindowTop > -this.getSecuritySize())){
-                // newY = this.getY(0, elemHeight, velocity);
-                // finalY = this.getY(window.innerHeight + elemHeight, elemHeight, velocity);
-                // if(this.currentGap > 0){
-                //     newY -= this.currentGap;
-                //     finalY -= this.currentGap;
-                // }
-            //}
-
-            // newY -= this.getSecuritySize()/2;
-            // finalY -= this.getSecuritySize()/2;
 
             this.calculatedElemHeight = elemHeight;
             this.calculatedWindowHeight = window.innerHeight;
             this.containerOffsetTop = containerOffsetTop;
-            // this.calcInitialY = newY;
-            // this.calculatedFinalY = finalY;
-            // this.calcInitialScroll = containerOffsetTop - window.innerHeight;
-            // this.calcFinalScroll = containerOffsetTop + elemHeight;
+
             this.lastContainerHeight = this.$container.height();
             this.lastContainerWidth = this.$container.width();
-            //this.progretionStep = ( this.calculatedFinalY + (-this.calcInitialY) ) / (this.calcFinalScroll - this.calcInitialScroll);
-            //this.stepDifference = containerOffsetTop * this.settings['velocity'];
+
             this.progretionStep = this.settings['velocity'];
             this.stepDifference = containerOffsetTop * this.settings['velocity'];
-            //this.lastY = newY;
-
-            //this.$elem.attr('gap', this.currentGap);
-            //console.log(/*newY, finalY, this.calcInitialScroll, this.calcFinalScroll, */this.progretionStep/*, this.stepDifference, this.settings['velocity']*/);
         }
 
         updateValuesIfNecessary(bypass){
