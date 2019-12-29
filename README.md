@@ -5,11 +5,11 @@ Easy to apply parallax effect.
 Can be created via JS or just with an HTML element
 
 # Table of Contents
-1. [With HTML Element](#example)
-2. [With JS](#example2)
-3. [Settings](#third-example)
+1. [With HTML Element](#element-parallax)
+2. [With JS](#js-parallax)
+3. [Settings](#parallax-settings)
 
-### Parallax with HTML element. <a name="With HTML Element"></a>
+### Parallax with HTML element. <a name="element-parallax"></a>
 
 To automatically create a parallax effect from an HTML element, **add the class `rb-parallax` to it**.
 
@@ -46,7 +46,7 @@ In the next example, we are setting this options through attributes.
 </div>
 ```
 
-## Parallax with JS <a name="With JS"></a>
+## Parallax with JS <a name="js-parallax"></a>
 
 To create a parallax effect with JS, you have to make use of the `RBParallaxCreator` object.
 
@@ -62,7 +62,7 @@ RBParallaxCreator.create($elem, settings)
 | settings | JSON          | false    | Settings to modify the behaviour of the parallax effect. If not passed, defaults are used. |
 
 
-# Parallax Settings <a name="Settings"></a>
+# Parallax Settings <a name="parallax-settings"></a>
 
 | Setting | Type  | Default | Description                                                                                                             |
 |--------------|-------|---------|-------------------------------------------------------------------------------------------------------------------------|
